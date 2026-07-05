@@ -5,4 +5,14 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import api from '@/services/api.js';
+
+api.get('/me')
+  .then(res => {
+    console.log(res.data);
+  })
+  .catch(err => {
+    console.error(123, err);
+  });
+</script>

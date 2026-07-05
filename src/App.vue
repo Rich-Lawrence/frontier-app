@@ -1,19 +1,41 @@
 <script setup>
 
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import api from '@/services/api.js';
 import Footer from '@/views/Footer.vue'
 
-api.get('/test')
-  .then(res => {
-    console.log(res.data);
-  })
-  .catch(err => {
-    console.error(123, err);
-  });
+const user = ref(null)
+const route = useRoute()
+
+const loadUser = () => {
+  const stored = localStorage.getItem('user')
+  user.value = stored ? JSON.parse(stored) : null
+}
+
+loadUser()
+
+watch(route, () => {
+  loadUser()
+})
+
+function logout () {
+    localStorage.removeItem('token')
+    localStorage.removeItem('user')
+    location.reload()
+}
 
 </script>
 
 <template>
+
+  <div class="header">
+    <div class="login-text" v-if="user">
+      Logged in as: {{ user.name }}
+      <button @click="logout">Logout</button>
+    </div>
+  </div>
+
   <nav>
     <router-link to="/">Home</router-link>
     <router-link to="/contact">Contact</router-link>
@@ -67,6 +89,11 @@ nav a.router-link-active {
 
 .content {
   flex: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
 }
 </style>
 
