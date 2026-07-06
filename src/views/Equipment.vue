@@ -1,6 +1,10 @@
 <template>
   <div class="mainImage">
     <h2 class="header">Our Equipment</h2>
+    <br/>
+    <button @click="downloadPdf">
+      Complete List (PDF)
+    </button>
   </div>
   <div class="carousel">
     <Carousel :images="images"/>
@@ -26,6 +30,10 @@ const images = [
   { src: img5, title: 'desk5', alt: 'Desk 5' },
   { src: img6, title: 'desk6', alt: 'Desk 6' },
 ]
+
+const downloadPdf = () => {
+  window.open('https://frontier.richlawrence.co.uk/api/download/brochure', '_blank')
+}
 
 </script>
 

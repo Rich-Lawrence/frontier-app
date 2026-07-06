@@ -28,12 +28,12 @@
 
 <style scoped>
 .text-image {
-  display: flex;
-  align-items: stretch;
-  gap: 3rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
+   display: flex;
+   align-items: stretch;
+   gap: 3rem;
+   max-width: 1100px;
+   margin: 0 auto;
+ }
 
 .text-image {
   flex-direction: row;
