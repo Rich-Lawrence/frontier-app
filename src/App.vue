@@ -38,6 +38,8 @@ function logout () {
 
   <nav>
     <router-link to="/">Home</router-link>
+    <router-link to="/rooms">Rooms</router-link>
+    <router-link to="/equipment">Equipment</router-link>
     <router-link to="/contact">Contact</router-link>
     <router-link to="/login">Login</router-link>
   </nav>
@@ -57,6 +59,7 @@ html, body, #app {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
+  background-color: black;
 }
 
 #app {
