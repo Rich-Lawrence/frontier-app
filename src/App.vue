@@ -40,8 +40,10 @@ function logout () {
     <router-link to="/">Home</router-link>
     <router-link to="/rooms">Rooms</router-link>
     <router-link to="/equipment">Equipment</router-link>
+    <router-link to="/bookings">Bookings</router-link>
     <router-link to="/contact">Contact</router-link>
-    <router-link to="/login">Login</router-link>
+    <router-link to="/My" v-if="user">My</router-link>
+    <router-link to="/login" v-else>Login</router-link>
   </nav>
 
   <main class="content">

@@ -32,7 +32,6 @@
   <div class="emailContainer">
     <Email class="emailForm"/>
   </div>
-
 </template>
 
 <script setup>

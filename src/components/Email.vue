@@ -34,6 +34,8 @@
 
 <template>
   <div class="login-container">
+
+    <p>Send Us A Message</p>
     <form @submit.prevent="sendEmail">
       <input
         v-model="name"

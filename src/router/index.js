@@ -6,6 +6,8 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Equipment from '../views/Equipment.vue'
 import Rooms from '../views/Rooms.vue'
+import Bookings from '../views/Bookings.vue'
+import My from '../views/My.vue'
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
@@ -14,6 +16,8 @@ const routes = [
   { path: '/register', name: 'Register', component: Register },
   { path: '/equipment', name: 'Equipment', component: Equipment },
   { path: '/rooms', name: 'Rooms', component: Rooms },
+  { path: '/bookings', name: 'Bookings', component: Bookings },
+  { path: '/my', name: 'My', component: My },
 ]
 
 const router = createRouter({
