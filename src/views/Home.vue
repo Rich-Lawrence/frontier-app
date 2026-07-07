@@ -82,4 +82,22 @@
   padding-top: 30px;
   padding-bottom: 50px;
 }
+
+/* Mobile */
+@media(max-width: 600px) {
+
+  .logo {
+    width: 100%;
+    height: 20%;
+    margin: 0px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .carousel {
+    width: 100%;
+    padding: 0px;
+  }
+
+}
 </style>

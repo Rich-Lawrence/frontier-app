@@ -64,6 +64,7 @@
 
 .image img {
   width: 100%;
+  max-width: 500px;
   height: 100%;
   object-fit: cover;
   border-radius: 12px;
@@ -88,15 +89,21 @@ p {
     flex-direction: column;
   }
 
+  .text-image.reverse {
+    flex-direction: column;
+  }
+
   .image img {
     height: 300px;
   }
-}
 
-.image img {
-  width: 100%;
-  max-width: 500px;
-  object-fit: cover;
-  border-radius: 10px;
+  .text {
+    flex: 1;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 </style>

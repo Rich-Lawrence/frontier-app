@@ -61,4 +61,13 @@ const downloadPdf = () => {
   width: 100%;
   object-fit: cover;
 }
+
+@media(max-width: 600px) {
+
+  .carousel {
+    width: 100%;
+    padding: 20px 0px;
+  }
+
+}
 </style>
