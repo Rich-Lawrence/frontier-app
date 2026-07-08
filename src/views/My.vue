@@ -1,16 +1,32 @@
 <script setup>
   import api from '@/services/api.js';
-  import { ref, onMounted } from 'vue'
+  import { ref, onMounted, watch } from 'vue'
+  import { useRoute, useRouter } from 'vue-router';
 
   const myBookings = ref([]);
   const error = ref('')
   const loading = ref(false)
+  const route = useRoute()
+  const router = useRouter()
+  const paymentSuccessful = ref(false)
 
   onMounted(async () => {
+
+    if(route.query.session_id) {
+      paymentSuccessful.value = true
+      // removes the success message after 5 seconds
+      setTimeout(() => {
+        paymentSuccessful.value = false
+      }, 5000)
+      // removes the query from the url
+      router.replace({
+        query: {}
+      })
+    }
+
     try {
       const res = await api.get("/myBookings");
       myBookings.value = res.data
-      console.log()
     } catch (err) {
       error.value = 'Unable to load your bookings'
     } finally {
@@ -38,7 +54,7 @@
   }
 
   const cancelBooking = async (booking) => {
-    /*confirmation pop-up*/
+    // confirmation pop-up
     if (!confirm(`Cancel booking for ${booking.room.name}?`)) {
       return
     }
@@ -61,6 +77,12 @@
   <div class="bookings-page">
 
     <h2>My Bookings</h2>
+
+    <div class="paymentSuccess" v-if="paymentSuccessful">
+      <p>✅ Payment Successful</p>
+      <p>your booking has been added</p>
+    </div>
+
 
     <div class="bookings-grid">
 
@@ -233,6 +255,13 @@
   background: #a93226;
 }
 
+.paymentSuccess {
+  color: green;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 10px;
+}
 
 /* Mobile */
 @media(max-width: 600px) {

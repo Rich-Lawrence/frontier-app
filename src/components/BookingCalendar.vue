@@ -57,17 +57,13 @@
     loading.value = true
 
     try {
-      const res = await api.post('/requestBooking', {
+      const res = await api.post('/checkout', {
         room_id: selectedRoom.value,
         start_date: range.value.start,
         end_date: range.value.end
       })
 
-      const bookings = await api.get(`/rooms/${selectedRoom.value}/bookings`)
-
-      bookedDates.value = bookings.data
-
-      router.push('/my')
+      window.location.href = res.data.url
 
     } catch (err) {
       if(err.response.data.message == 'The room id field is required.'){
@@ -147,6 +143,10 @@ button {
   color: red !important;
   background-color: #ffe0e0 !important;
   border-radius: 50%;
+}
+
+#room {
+  margin-bottom: 10px;
 }
 
 .error {
